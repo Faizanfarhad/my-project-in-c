@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int i;
+int j;
+
+struct contact
+{
+    char name[15];
+    int phone_no;
+
+} cn;
+
+void add_contact()
+{
+    printf("Enter the name :");
+    scanf("%s", cn.name);
+    /*
+     fgets(cn.name,sizeof(cn.name),stdin);   // (failed)  this is not working properly
+     cn.name[strcspn(cn.name, "\n")]=='0';
+    */
+    printf("\nEnter the contact Number :");
+    scanf("%d", &cn.phone_no);
+}
+
+void del_contact()
+{
+    printf("Enter the name : ");
+    char d[15];
+    scanf("%s", d);
+    printf("Enter the Number : ");
+    int n;
+    scanf("%d",&n);
+
+    if (d == cn.name|| n == cn.phone_no)
+    {
+        printf("Deleted seccesfully\n");
+        
+    }
+    else
+    {
+        printf("Invalid Number\n");
+    }
+}
+void update_contact()
+{
+}
+
+int main()
+{
+    int a;
+    printf("Select the option\n");
+    while (1)
+    {
+        printf("1.Adding contact numbers\n2.Deleting contact number\n3.Update contact number\n4.quit\n");
+        scanf("%d", &a);
+
+        switch (a)
+        {
+        case 1:
+            add_contact();
+            break;
+        case 2:
+            del_contact();
+            break;
+            case 3:
+            printf("\nCurrently Unavailable!\n\n");
+            break;
+        case 4:
+            exit(0);
+        default:
+            break;
+        }
+    }
+    return 0;
+}
